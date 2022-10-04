@@ -1,9 +1,9 @@
 let search = async() =>{
-  let res = await fetch(`https://umang-api.herokuapp.com/`);
+  let res = await fetch(`https://umang-json-server.onrender.com/api/Fruits`);
   let data = await res.json();
   console.log(data);
-  display(data.Products);
-  return data.Products;
+  display(data);
+  return data;
 }
 search()
 function display(data)
@@ -13,7 +13,7 @@ function display(data)
     let h6 = document.createElement("p");
     h6.innerText="ALL PRODUCTS"
    
-    data.forEach(function (elem)
+    data.map(function (elem)
     {
       let h1 = document.createElement("h1");
       h1.innerText = `${elem.discount}`;
